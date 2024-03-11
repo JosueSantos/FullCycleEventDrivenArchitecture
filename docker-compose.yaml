@@ -3,12 +3,21 @@ version: '3'
 services:
   walletcore: 
     build: ./walletcore
+    container_name: walletcore
     platform: linux/amd64
     ports:
       - 8080:8080
+  
+  challenge:
+    build: ./challenge
+    container_name: challenge
+    platform: linux/amd64
+    ports:
+      - 3003:3003
 
   mysql:
     image: mysql:5.7
+    container_name: mysql
     platform: linux/amd64
     environment:
       MYSQL_ROOT_PASSWORD: root
